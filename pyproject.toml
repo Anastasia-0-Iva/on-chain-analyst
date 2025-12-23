@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "crypto-archaeologist"
+version = "1.0.0"
+description = "Анализатор спящих (dormant) Ethereum-кошельков"
+authors = ["Anastasia <Vatson.1604@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/твой-username/crypto-archaeologist"
+homepage = "https://github.com/твой-username/crypto-archaeologist"
+keywords = ["ethereum", "blockchain", "analysis", "crypto", "archaeology", "etherscan"]
+
+[tool.poetry.dependencies]
+python = ">=3.12,<4"
+requests = "^2.28.0"
+web3 = "^6.0.0"
+python-dotenv = "^1.0.0"
+pandas = "^2.0.0"  # для работы с данными
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.0.0"
+pytest = "^7.4.0"
+ipython = "^8.14.0"
+
+[tool.poetry.scripts]
+crypto-arch = "crypto_archaeologist.main:main"
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.crypto-archaeologist]
+defaults = {min_balance_eth = 0.01, years_dormant = 3.0, requests_per_second = 4}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
